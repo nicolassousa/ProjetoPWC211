@@ -172,28 +172,42 @@ function update(req, res) {
 function updatePWD(req, res) {
     const idGestor_Admin = req.sanitize('id').escape();
     const Password = req.body.Password;
+    const Token = req.body.Token;
     const errors = req.validationErrors();
     if (errors) {
         res.send(errors);
         return;
     } else {
-        if (idGestor_Admin != "NULL") {
-            bcrypt.hash(Password, saltRounds).then(function (hash) {
-                const update = [hash, idGestor_Admin];
-                const query = connect.con.query('UPDATE Gestor_Admin SET Password = ? WHERE idGestor_Admin = ?', update, function (err, rows, fields) {
-                    console.log(query.sql);
-                    if (!err) {
-                        res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+        if (idGestor_Admin != "NULL" && Token != "NULL" && Password != "NULL" && idGestor_Admin && Token && Password) {
+            const query1 = connect.con.query('SELECT * FROM Gestor_Admin WHERE idGestor_Admin = ? AND Password = ?', [idGestor_Admin, Token], function (err, rows, fields) {
+                console.log(query1.sql);
+                if (err) {
+                    console.log(err);
+                    res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                } else {
+                    if (rows.length == 0) {
+                        res.status(jsonMessages.db.noRecords.status).send(jsonMessages.db.noRecords);
                     } else {
-                        if (err.code == "ER_DUP_ENTRY") {
-                            res.status(jsonMessages.db.duplicateEmail.status).send(jsonMessages.db.duplicateEmail);
-                        } else {
-                            res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
-                        }
-                        console.log(err);
+                        bcrypt.hash(Password, saltRounds).then(function (hash) {
+                            const update = [hash, idGestor_Admin, Token];
+                            const query = connect.con.query('UPDATE Gestor_Admin SET Password = ? WHERE idGestor_Admin = ?', update, function (err, rows, fields) {
+                                console.log(query.sql);
+                                if (!err) {
+                                    res.status(jsonMessages.db.successUpdate.status).send(jsonMessages.db.successUpdate);
+                                } else {
+                                    if (err.code == "ER_DUP_ENTRY") {
+                                        res.status(jsonMessages.db.duplicateEmail.status).send(jsonMessages.db.duplicateEmail);
+                                    } else {
+                                        res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
+                                    }
+                                    console.log(err);
+                                }
+                            });
+                        });
                     }
-                });
+                }
             });
+
         } else
             res.status(jsonMessages.db.requiredData.status).send(jsonMessages.db.requiredData);
     }
@@ -252,8 +266,8 @@ function forgotPassword(req, res) {
                 res.status(jsonMessages.db.dbError.status).send(jsonMessages.db.dbError);
             } else {
                 if (rows.length > 0) {
-                    var mensagem = "Olá " + rows[0].Nome + ". Recebeu este email porque alguem iniciou o processo de recuperação da sua password Press&Play.\n\nEmail: " + Email + "\nPassword: " + rows[0].Password;
-                    mensagem += "\n\nhttps://press-and-play.herokuapp.com/login"
+                    var mensagem = "Olá " + rows[0].Nome + ". Recebeu este email porque alguem iniciou o processo de recuperação da sua password Press&Play.\n\nToken: " + rows[0].Password;
+                    mensagem += "\n\nhttp://localhost:8080/changePassword/" + rows[0].idGestor_Admin
                     mensagem += "\n\n\nSe não foi você que iniciou este processo, porfavor ignore este email."
                     var transporter = nodemailer.createTransport({
                         service: 'Gmail',

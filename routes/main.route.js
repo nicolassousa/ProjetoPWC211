@@ -99,6 +99,22 @@ router.post('/mail', controllerMail.sendSugestion);
 //RECUPERAR PASSWORD
 router.post('/forgotpassword', controllerGestorAdmin.forgotPassword);
 
+router.get('/changePassword', function (req, res) {
+    if (req.cookies.changeIdC)
+        res.render('change-password.html');
+    else
+        res.redirect('/forbidden')
+});
+router.get('/changePassword/:id', function (req, res) {
+    idCookie = req.sanitize('id').escape();
+    res.clearCookie('changeIdC')
+    res.clearCookie('auth')
+    res.clearCookie('tipoC')
+    res.clearCookie('idC')
+    res.cookie('changeIdC', idCookie, { maxAge: 1000 * 60 * 5 });
+    res.redirect('/changePassword')
+});
+
 //LOGIN AND LOGOUT ROUTES
 router.post('/login', controllerGestorAdmin.signIn);
 

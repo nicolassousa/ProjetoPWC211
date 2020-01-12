@@ -27,7 +27,7 @@ window.onload = function() {
                     showConfirmButton: false,
                     timer: 3000
                 }).then(() => {
-                    window.location.replace('login')
+                    window.location.replace('logout')
                 })
             }
         }).catch(function(err) {
