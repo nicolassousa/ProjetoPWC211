@@ -119,7 +119,6 @@ function sendBlock(resultado, id) {
                 var hora = data.getHours();
                 var parteDoDia = "NULL";
                 var mensagemResultado = "NULL";
-                var subjectResultado = "NULL";
 
                 if (hora >= 6 && hora <= 11) {
                     parteDoDia = "Bom dia, " + pedido.primeiro_nome + ".";
@@ -132,10 +131,8 @@ function sendBlock(resultado, id) {
                 }
                 if (resultado) {
                     var mensagemResultado = "Informamos que você acabou de ser bloqueado pela nossa empresa. \nSe você não sabe a razão pela qual foi bloqueado por favor contacte a nossa empresa através do email pressplay1920@gmail.com";
-                    subjectResultado = "Aceite";
                 } else {
                     var mensagemResultado = "Informamos que você acabou de ser desbloqueado pela nossa empresa. \nEstamos felizes por tê-lo de volta e pedimos desculpa por qualquer incómodo.";
-                    subjectResultado = "Recusado";
                 }
 
                 mensagemResultado += "\n\nDetalhes da Empresa: "
@@ -148,7 +145,7 @@ function sendBlock(resultado, id) {
                 var mailOptions = {
                     from: 'pressplay1920@gmail.com', // sender address
                     to: pedido.Email, // list of receivers
-                    subject: ' Bloqueio Press&Play ' + subjectResultado, // Subject line
+                    subject: ' Bloqueio Press&Play ', // Subject line
                     text: text
                     // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
                 };
