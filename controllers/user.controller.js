@@ -144,7 +144,7 @@ function sendBlock(resultado, id) {
 
                 var mailOptions = {
                     from: 'pressplay1920@gmail.com', // sender address
-                    to: pedido.Email, // list of receivers
+                    to: pedido.email, // list of receivers
                     subject: ' Bloqueio Press&Play ', // Subject line
                     text: text
                     // html: '<b>Hello world ✔</b>' // You can choose to send an HTML body instead
