@@ -1,0 +1,38 @@
+{
+    "name": "pressandplay",
+    "version": "0.0.0",
+    "description": "Press & Play Projeto PW",
+    "main": "server.js",
+    "author": "Uminho",
+    "scripts": {
+        "start": "forever start server.js",
+        "stop": "forever stop server.js"
+    },
+    "dependencies": {
+        "bcrypt-nodejs": "0.0.3",
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "^1.4.4",
+        "cors": "^2.8.5",
+        "crypto": "^1.0.1",
+        "express": "^4.17.1",
+        "express-sanitizer": "^1.0.5",
+        "express-validator": "^5.3.1",
+        "forever": "^1.0.0",
+        "jsonwebtoken": "^8.5.1",
+        "mustache-express": "^1.3.0",
+        "mysql": "^2.17.1",
+        "nodemailer": "^4.7.0",
+        "nodemailer-smtp-transport": "^2.7.4",
+        "sequelize": "^3.35.1",
+        "twit": "^2.2.11"
+    },
+    "devDependencies": {},
+    "keywords": [
+        "pw",
+        "web",
+        "book",
+        "node"
+    ],
+    "license": "ISC"
+}

@@ -1,0 +1,90 @@
+.bgF{
+  background-color: #151B1B;
+}
+.padding-F{
+  padding-top: 2% !important;
+  padding-bottom: 1.5% !important;
+}
+.row{
+  text-align: center;
+  margin-right: 0%;
+  margin-left: 0%;
+}
+.column{
+  line-height: 15px;
+}
+.padding-p {
+  padding-top: 20px;
+  font-size: 14px;
+  color: #ffffff;
+}
+.alignl{
+  text-align: left !important;
+  padding-left: 35%;
+  padding-top: 15px;
+  text-decoration: none !important;
+  font-size: 15px;
+  color: #ffffff !important;
+  line-height: 10px;
+}
+.alignc{
+  text-align: left !important;
+  padding-left: 33%;
+  color: #ffffff;
+  padding-top: 15px;
+  line-height: 5px;
+  font-size: 15px;
+}
+.alignc > p1 {
+  line-height: 20px;
+}
+.conj{
+  padding-left: 90px ;
+  padding-top: 40px;
+}
+.bold{
+  font-weight: bold;
+  color: whitesmoke;
+  text-align: center;
+}
+.col-md-4 {
+  height: 100px !important;
+}
+footer{
+  color: #ffffff;
+}
+footer > a:hover{
+  color: #ffffff !important;
+}
+.bgF > a:hover{
+  color: #ffffff !important;
+}
+
+@media screen and (max-width: 479px) {
+  .padding-p{
+    margin-bottom: 20px !important;
+  }
+  .alignc, .alignl {
+    font-size: 14px;
+  }
+  .conj{
+    padding-top: 20px;
+    padding-left: 35%
+  }
+  .alignl{
+    padding: 0;
+    padding-top: 10px !important;
+    text-align: center !important;
+  }
+  .alignc{
+    padding: 0;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    text-align: center !important;
+  }
+  .conj{
+    padding-top: 10px !important;
+    padding-bottom: 20px !important;
+    padding-left: 37%;
+  }
+}
