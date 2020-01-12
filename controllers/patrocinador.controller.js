@@ -128,7 +128,8 @@ function update(req, res) {
 }
 
 function block(req, res) {
-    const update = [1, req.sanitize('id').escape()];
+    const idPatrocinador = req.sanitize('id').escape();
+    const update = [1, idPatrocinador];
     const query = connect.con.query('UPDATE Patrocinador SET bloqueado = ? WHERE idPatrocinador = ?', update, function (err, rows, fields) {
         console.log(query.sql);
         if (!err) {
@@ -142,7 +143,8 @@ function block(req, res) {
 }
 
 function desblock(req, res) {
-    const update = [0, req.sanitize('id').escape()];
+    const idPatrocinador = req.sanitize('id').escape();
+    const update = [0, idPatrocinador];
     const query = connect.con.query('UPDATE Patrocinador SET bloqueado = ? WHERE idPatrocinador = ?', update, function (err, rows, fields) {
         console.log(query.sql);
         if (!err) {
