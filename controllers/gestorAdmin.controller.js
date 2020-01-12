@@ -385,7 +385,7 @@ function deny(req, res) {
     });
 }
 
-function sendResult(id, pass) {
+function sendResult(resultado, id, pass) {
     var transporter = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
