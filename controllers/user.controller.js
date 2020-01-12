@@ -1,6 +1,7 @@
 ﻿const jsonMessagesPath = __dirname + "/../assets/jsonMessages/";
 const jsonMessages = require(jsonMessagesPath + "bd");
 const crypto = require("crypto");
+const nodemailer = require('nodemailer');
 const connect = require('../config/connectMySQL');
 
 function read(req, res) {
