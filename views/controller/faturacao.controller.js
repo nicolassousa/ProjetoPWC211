@@ -516,9 +516,9 @@ async function render3anos() {
 
   //Mes e Ano dos Meses
  
-  var nAno = (date.getFullYear()-1);  //M�s atual
-  var nAnoPassado = (date.getFullYear()-2);  //M�s atual
-  var nAno2Passado = (date.getFullYear()-3);  //M�s atual
+  var nAno = (date.getFullYear());  //M�s atual
+  var nAnoPassado = (date.getFullYear()-1);  //M�s atual
+  var nAno2Passado = (date.getFullYear()-2);  //M�s atual
   
    
 

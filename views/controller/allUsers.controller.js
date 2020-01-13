@@ -29,7 +29,7 @@ async function renderAllUsers() {
             newRow.innerHTML += "<td>" + data1.getDate() + '/' + mes1 + '/' + data1.getFullYear() + "</td> ";
             newRow.innerHTML += "<td>" + data2.getDate() + '/' + mes2 + '/' + data2.getFullYear() + "</td> ";
             newRow.innerHTML += "<td>" + utilizador.pontos + "</td> ";
-            newRow.innerHTML += '<td class="pt-3-half" contenteditable="false"> <button type="button" class="recusar-b" onclick = desbloquear("' + utilizador.id_user + '")>Bloquear</button> </td>';
+            newRow.innerHTML += '<td class="pt-3-half" contenteditable="false"> <button type="button" class="recusar-b" onclick = desbloquear("' + utilizador.id_user + '")>Desbloquear</button> </td>';
         }
         else {
             var newRow = conteudo.insertRow();

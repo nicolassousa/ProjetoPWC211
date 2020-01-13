@@ -269,7 +269,7 @@
                             <div>
                                 <span class="dados1"><i class="fa fa-search" aria-hidden="true"></i> </span>
                                 </label>
-                                <input type="text" id="textsearchn">
+                                <input type="text" id="textsearchn2">
                             </div>
                             <div class="scroll">
                                 <table id="tblpatrocinadoresna" class="table table-striped">
@@ -384,6 +384,18 @@
             });
         });
     </script>
+
+<script>
+    $(document).ready(function() {
+        $("#textsearchn2").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#dadosn2 tr").filter(function() {
+                $(this).toggle($(this).text()
+                    .toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
     <script src="./controller/patrocinador.controller.js"></script>
 </body>
 

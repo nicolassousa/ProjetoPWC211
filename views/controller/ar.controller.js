@@ -81,7 +81,7 @@ async function renderAtividadesPlaneadas() {
 
                 if (data.getFullYear() == date.getFullYear() && data.getMonth() == date.getMonth()) {
                     if (data.getDate() == 1) {
-                        if (atividae.Anulada.data[0] == 0) {
+                        if (atividade.Anulada.data[0] == 0) {
                             dia1++;
                         }
                         else {
